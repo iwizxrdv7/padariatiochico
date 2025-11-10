@@ -7,11 +7,9 @@ export default async function handler(req, res) {
     const SECRET = process.env.BEEHIVE_SECRET;
 
     if (!SECRET) {
-      console.log("ERRO: BEEHIVE_SECRET não encontrado no ambiente");
-      return res.status(500).json({ error: "Chave não configurada" });
+      return res.status(500).json({ error: "BEEHIVE_SECRET não configurado" });
     }
 
-    // Auth correto para Beehive (IMPORTANTE!)
     const auth = Buffer.from(`${SECRET}:`).toString("base64");
 
     const { orderId, amount, items, customer } = req.body;
@@ -58,8 +56,8 @@ export default async function handler(req, res) {
       }
     });
 
-  } catch (error) {
-    console.error("PIX ERROR =>", error);
+  } catch (err) {
+    console.error("PIX ERROR =>", err);
     return res.status(500).json({ error: "Falha interna ao gerar PIX" });
   }
 }
