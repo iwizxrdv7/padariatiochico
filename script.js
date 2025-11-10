@@ -294,17 +294,18 @@ function updateTotalsUI() {
 
 document.addEventListener('DOMContentLoaded', updateTotalsUI);
 
+document.addEventListener("DOMContentLoaded", updateTotalS);
+
+// --- PIX SCRIPT --- //
 document.getElementById("confirm-btn").addEventListener("click", async () => {
   console.log("BOTÃO CONFIRMADO ✅");
 
-  // Coletar dados do cliente
   const name = document.getElementById("name").value;
   const cpf = document.getElementById("cpf").value;
   const whatsapp = document.getElementById("whatsapp").value;
   const totalText = document.getElementById("total-value").textContent;
 
-  // Converter "R$ 20,00" → 2000 centavos
-  const amount = parseInt(totalText.replace(/\D/g, "")); 
+  const amount = parseInt(totalText.replace(/\D/g, ""));
 
   const payload = {
     amount,
@@ -325,14 +326,6 @@ document.getElementById("confirm-btn").addEventListener("click", async () => {
     return;
   }
 
-  // Preencher o modal
   document.getElementById("pix-code").value = data.qrcode;
-
-  // Mostrar modal
   document.getElementById("pix-modal").style.display = "flex";
 });
-
-
-
-
-
