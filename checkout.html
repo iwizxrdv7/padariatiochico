@@ -121,6 +121,27 @@
   </div>
 </div>
 
+...
+<button type="button" id="confirm-btn" class="btn-primary">Confirmar Pedido</button>
+</div>
+</div>
+
+<!-- === MODAL DO PIX (COLE AQUI) === -->
+<div id="pix-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,.7); justify-content:center; align-items:center;">
+  <div style="background:#fff; padding:20px; border-radius:8px; text-align:center; max-width:380px; width:90%;">
+    <h2>Finalizar Pagamento</h2>
+    <p>Copie o código PIX abaixo:</p>
+
+    <textarea id="pix-code" readonly style="width:100%; height:90px;"></textarea>
+
+    <button id="copy-pix" style="margin-top:10px;">Copiar Código PIX</button>
+    <p id="pix-timer" style="margin-top:10px; color:red;">Tempo restante: 15:00</p>
+
+    <button id="close-pix" style="margin-top:10px;">Fechar</button>
+  </div>
+</div>
+<!-- === FIM DO MODAL === -->
+
 <script src="script.js"></script>
 </body>
 </html>
