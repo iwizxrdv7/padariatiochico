@@ -1,16 +1,14 @@
-console.log("SECRET LOADED =>", process.env.BEEHIVE_SECRET);
-
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Only POST allowed" });
   }
 
   try {
-    const SECRET = process.env.BEEHIVE_SECRET?.trim() || "sk_live_v2vrnO9Ru3iRM273bUGBS6nMHd4fBgiB1OMnwFObm9";
+    const SECRET = process.env.BEEHIVE_SECRET;
     const { orderId, amount, items, customer } = req.body;
 
     const payload = {
-      amount: Math.round(amount * 100),
+      amount: Math.round(amount * 100), // valor em centavos
       paymentMethod: "pix",
       items: items.map(item => ({
         title: item.name,
@@ -36,13 +34,12 @@ export default async function handler(req, res) {
     });
 
     const data = await response.json();
-    console.log("PAYBEEHIVE RESPONSE =>", data);
 
     if (!data.qrCode || !data.qrCodeImage) {
       return res.status(400).json({ error: "Erro ao gerar PIX", details: data });
     }
 
-    return res.status(200).json({
+    return res.status(response.status).json({
       qrcode: data.qrCode,
       qrcodeImage: data.qrCodeImage,
       expiresAt: data.expiresAt
@@ -53,4 +50,3 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: "Erro interno ao gerar PIX" });
   }
 }
-
