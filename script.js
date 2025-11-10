@@ -312,8 +312,34 @@ function mostrarPixModal(qrCode, qrImage) {
   };
 }
 
+confirmBtn.addEventListener("click", async () => {
+
+  const items = getCartItems();
+  const total = calcSubtotal(items);
+
+  const customer = {
+    nome: document.getElementById("nome").value.trim(),
+    cpf: document.getElementById("cpf").value.replace(/\D/g, ""),
+    whats: document.getElementById("whatsapp").value.replace(/\D/g, "")
+  };
+
+  const resp = await fetch("/api/create-pix", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      amount: Math.round(total * 100),
+      items,
+      customer
+    })
+  });
+
+  const data = await resp.json();
+  mostrarPixModal(data.pix.code, data.pix.qrcodeImage);
+});
+
 
 document.addEventListener('DOMContentLoaded', updateTotalsUI);
+
 
 
 
