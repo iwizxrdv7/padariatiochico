@@ -4,53 +4,49 @@ export default async function handler(req, res) {
   }
 
   try {
-    const CLIENT_ID = process.env.BEEHIVE_CLIENT_ID;
-    const CLIENT_SECRET = process.env.BEEHIVE_SECRET;
+    const PUBLIC = process.env.BEEHIVE_PUBLIC;
+    const SECRET = process.env.BEEHIVE_SECRET;
 
-    const token = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString("base64");
+    // AQUI ESTAVA O ERRO
+    const auth = Buffer.from(`${PUBLIC}:${SECRET}`).toString("base64");
 
     const { orderId, amount, items, customer } = req.body;
 
     const payload = {
-      amount, // já vem em centavos do frontend
+      amount,
       paymentMethod: "pix",
-      
       customer: {
         name: customer.nome,
-        documents: [
-          { type: "cpf", number: customer.cpf }
-        ],
+        document: { type: "cpf", number: customer.cpf },
         phoneNumber: customer.whats
       },
-
       items: items.map(item => ({
         title: item.name,
         unitPrice: Math.round(item.price * 100),
-        quantity: item.qty,
-        tangible: false
+        quantity: item.qty
       })),
-
       pix: { expiresInDays: 1 },
-
       metadata: { orderId },
-
       postbackUrl: `https://${req.headers.host}/api/webhook`
     };
 
     const response = await fetch("https://api.conta.paybeehive.com.br/v1/transactions", {
       method: "POST",
       headers: {
-        "Authorization": `Basic ${token}`,
+        "Authorization": `Basic ${auth}`,
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(payload),
+      body: JSON.stringify(payload)
     });
 
     const data = await response.json();
 
-    console.log("BEEHIVE RESPONSE =>", data); // deixa isso pra debug
+    // Se der erro, joga na cara pra debug
+    if (!data.qrCode) {
+      return res.status(400).json({ error: "Erro ao gerar PIX", details: data });
+    }
 
-    return res.status(response.status).json({
+    return res.status(200).json({
       pix: {
         qrcode: data.qrCode,
         code: data.qrCode,
@@ -58,8 +54,8 @@ export default async function handler(req, res) {
       }
     });
 
-  } catch (e) {
-    console.log("PIX ERROR =>", e);
+  } catch (error) {
+    console.error("PIX ERROR =>", error);
     return res.status(500).json({ error: "Falha interna ao gerar PIX" });
   }
 }
