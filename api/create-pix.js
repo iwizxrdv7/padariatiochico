@@ -30,7 +30,7 @@ export default async function handler(req, res) {
     const response = await fetch("https://api.conta.paybeehive.com.br/v1/transactions", {
       method: "POST",
       headers: {
-        Authorization: `Basic ${token}`,
+        Authorization: `Basic ${SECRET}`,
         "Content-Type": "application/json"
       },
       body: JSON.stringify(payload),
