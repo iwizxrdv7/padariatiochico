@@ -1,44 +1,41 @@
 export default async function handler(req, res) {
-  if (req.method !== "POST")
-    return res.status(405).json({ error: "Only POST allowed" });
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Método não permitido" });
+  }
+
+  const { amount, orderId } = req.body;
 
   try {
-    const SECRET = process.env.BEEHIVE_SECRET;
-    const token = Buffer.from(`${SECRET}:x`).toString("base64");
-
-    const { orderId, amount, items, customer } = req.body;
-
-    const payload = {
-      amount, // em centavos ex: R$25,00 => 2500
-      paymentMethod: "pix",
-      items: items.map(item => ({
-        title: item.name,
-        quantity: item.qty,
-        unitPrice: Math.round(item.price * 100) // centavos
-      })),
-      customer: {
-        name: customer.nome,
-        documents: customer.cpf ? [{ type: "cpf", number: customer.cpf }] : undefined,
-        phoneNumber: customer.whats
-      },
-      postbackUrl: `https://${req.headers.host}/api/webhook`,
-      metadata: { orderId }
-    };
-
-    const response = await fetch("https://api.conta.paybeehive.com.br/v1/transactions", {
+    const response = await fetch("https://app.beehivepay.com/api/v2/charge", {
       method: "POST",
       headers: {
-        Authorization: `Basic ${token}`,
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `Bearer sk_live_v2vrnO9Ru3iRM273bUGBS6nMHd4fBgiB1OMnwFObm9`
       },
-      body: JSON.stringify(payload)
+      body: JSON.stringify({
+        amount: Math.round(amount * 100), // converte para centavos
+        currency: "BRL",
+        description: `Pedido #${orderId}`,
+      }),
     });
 
     const data = await response.json();
-    return res.status(response.status).json(data);
 
-  } catch (err) {
-    console.error(err);
-    return res.status(500).json({ error: "create-pix-failed" });
+    if (!data.qrcode) {
+      return res.status(400).json({
+        error: "Erro ao gerar PIX",
+        response: data
+      });
+    }
+
+    return res.status(200).json({
+      qrcode: data.qrcode,
+      code: data.code,
+      expiresIn: data.expiresAt
+    });
+
+  } catch (error) {
+    console.error("Erro ao gerar PIX:", error);
+    return res.status(500).json({ error: "Erro interno ao gerar PIX" });
   }
 }
