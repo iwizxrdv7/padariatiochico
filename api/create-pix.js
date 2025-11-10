@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     const { orderId, amount, items, customer } = req.body;
 
     const payload = {
-      amount: Math.round(amount * 100), // centavos
+      amount: Math.round(amount * 100),
       paymentMethod: "pix",
       items: items.map(item => ({
         title: item.name,
@@ -24,23 +24,20 @@ export default async function handler(req, res) {
       metadata: { orderId }
     };
 
-    const token = Buffer.from(`${SECRET}:`).toString("base64");
-
     const response = await fetch("https://api.conta.paybeehive.com.br/v1/transactions", {
       method: "POST",
       headers: {
-        "Authorization": `Basic ${token}`,
+        Authorization: `Bearer ${SECRET}`,
         "Content-Type": "application/json"
       },
       body: JSON.stringify(payload)
     });
 
     const data = await response.json();
+    console.log("PAYBEEHIVE RESPONSE =>", data);
 
-    console.log("BEEHIVE RESPONSE →", data);
-
-    if (!response.ok) {
-      return res.status(response.status).json({ error: "Erro ao gerar PIX", details: data });
+    if (!data.qrCode || !data.qrCodeImage) {
+      return res.status(400).json({ error: "Erro ao gerar PIX", details: data });
     }
 
     return res.status(200).json({
