@@ -6,8 +6,7 @@ export default async function handler(req, res) {
   try {
     const CLIENT_ID = process.env.BEEHIVE_CLIENT_ID;
     const CLIENT_SECRET = process.env.BEEHIVE_SECRET;
-    const token = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString("base64");
-
+    Authorization: `Basic ${Buffer.from(`${SECRET}:`).toString("base64")}`
     const { orderId, amount, items, customer } = req.body;
 
     const payload = {
