@@ -172,25 +172,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const delivery = subtotal >= DELIVERY_THRESHOLD ? 0 : DELIVERY_FEE;
         const totalFinal = subtotal + delivery;
 
-        // === CHAMAR API DO VERCEL PARA CRIAR PIX ===
-        const resp = await fetch('/api/create-pix', {...})
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                orderId: Date.now(),
-                amount: Math.round(totalFinal * 100),
-                items: items,
-                customer: { nome, cpf, whats: phone }
-            })
-        });
-
-        const data = await resp.json();
-        const qr = data?.pix?.qrcode;
-        const copiaCola = data?.pix?.code;
-
-        mostrarPixModal(qr, copiaCola);
-    });
-
 });
 
 // === TIMER DE RESERVA DO CARRINHO ===
@@ -309,38 +290,6 @@ function updateTotalsUI() {
     const btn = document.getElementById('confirm-btn');
     if (btn) btn.textContent = `Confirmar Pedido no valor de ${money(final)}`;
 }
-
-function mostrarPixModal(qrCode, qrImage) {
-    document.getElementById("pix-modal").classList.remove("hidden");
-    document.getElementById("pix-code").value = qrCode;
-    document.getElementById("pix-image").src = qrImage;
-
-    document.getElementById("copy-btn").onclick = () => {
-        navigator.clipboard.writeText(qrCode);
-        alert("Código PIX copiado!");
-    };
-
-    iniciarTimerPix();
-}
-
-// Timer de 15 minutos
-function iniciarTimerPix() {
-    let time = 15 * 60;
-    const display = document.getElementById("pix-timer-count");
-
-    function update() {
-        const m = Math.floor(time / 60);
-        const s = time % 60;
-        display.textContent = `${m}:${s < 10 ? "0" : ""}${s}`;
-
-        if (time <= 0) return;
-        time--;
-        setTimeout(update, 1000);
-    }
-
-    update();
-}
-
 
 document.addEventListener('DOMContentLoaded', updateTotalsUI);
 
