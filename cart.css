@@ -1,0 +1,215 @@
+/* === Padaria do Chico — Carrinho Flutuante (moderno) === */
+
+/* Botão flutuante bottom-left */
+.pdc-cart-fab {
+  position: fixed;
+  left: 18px;
+  bottom: 18px;
+  width: 64px;
+  height: 64px;
+  border-radius: 9999px;
+  background: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+  z-index: 9999;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.pdc-cart-fab:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, .3);
+}
+
+.pdc-cart-fab .pdc-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 9999px;
+  background: #ef4444;
+  /* badge vermelho */
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+}
+
+/* Painel lateral (abre da direita pra esquerda) */
+.pdc-cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(420px, 92vw);
+  height: 100vh;
+  background: #fff;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, .15);
+  transform: translateX(100%);
+  transition: transform .25s ease;
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+.pdc-cart-drawer.pdc-open {
+  transform: translateX(0);
+}
+
+.pdc-cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.pdc-cart-title {
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.pdc-cart-close {
+  background: transparent;
+  border: 0;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.pdc-cart-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px 16px;
+}
+
+.pdc-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px 10px;
+  padding: 12px 10px;
+  border: 1px solid #f1f1f1;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .02);
+}
+
+.pdc-item-title {
+  font-weight: 700;
+}
+
+.pdc-item-price {
+  font-weight: 600;
+  opacity: .85;
+}
+
+.pdc-qty {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #eee;
+  border-radius: 9999px;
+  padding: 4px 8px;
+}
+
+.pdc-qty button {
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  border: 0;
+  background: #f7f7f7;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.pdc-qty input {
+  width: 38px;
+  text-align: center;
+  border: 0;
+  outline: 0;
+  font-weight: 700;
+}
+
+.pdc-cart-footer {
+  border-top: 1px solid #eee;
+  padding: 14px 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.pdc-total-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pdc-total-line b {
+  font-size: 18px;
+}
+
+.pdc-btn-primary {
+  background: #16a34a;
+  /* verde */
+  color: #fff;
+  border: 0;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(22, 163, 74, .25);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.pdc-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 26px rgba(22, 163, 74, .3);
+}
+
+/* backdrop opcional */
+.pdc-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+  z-index: 9997;
+}
+
+.pdc-backdrop.pdc-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Util */
+.pdc-hidden {
+  display: none !important;
+}
+
+.pdc-continue {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  padding: 12px 0;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.pdc-continue:hover {
+  background: #27afab;
+}

