@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const SECRET = process.env.BEEHIVE_SECRET || "sk_live_v2vrnO9Ru3iRM273bUGBS6nMHd4fBgiB1OMnwFObm9";
+    const SECRET = process.env.BEEHIVE_SECRET?.trim() || "sk_live_v2vrnO9Ru3iRM273bUGBS6nMHd4fBgiB1OMnwFObm9";
     const { orderId, amount, items, customer } = req.body;
 
     const payload = {
