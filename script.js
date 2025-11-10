@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const totalFinal = subtotal + delivery;
 
         // === CHAMAR API DO VERCEL PARA CRIAR PIX ===
-        const resp = await fetch("/api/create-pix", {
+        const resp = await fetch(`${window.location.origin}/api/create-pix`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -343,6 +343,7 @@ function iniciarTimerPix() {
 
 
 document.addEventListener('DOMContentLoaded', updateTotalsUI);
+
 
 
 
