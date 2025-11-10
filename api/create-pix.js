@@ -5,12 +5,12 @@ export default async function handler(req, res) {
 
   try {
     const SECRET = process.env.BEEHIVE_SECRET;
+const auth = Buffer.from(`${SECRET}:`).toString("base64");
+
 
     if (!SECRET) {
       return res.status(500).json({ error: "BEEHIVE_SECRET não configurado" });
     }
-
-    const auth = Buffer.from(`${SECRET}:`).toString("base64");
 
     const { orderId, amount, items, customer } = req.body;
 
