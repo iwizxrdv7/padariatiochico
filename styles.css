@@ -337,14 +337,3 @@ body {
     top: 20px;
 }
 
-/* Modal escondido ao iniciar */
-#pix-modal {
-  display: none; 
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
