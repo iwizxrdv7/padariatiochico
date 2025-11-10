@@ -352,10 +352,28 @@ cdocument.addEventListener("DOMContentLoaded", () => {
     mostrarPixModal(data.pix.code, data.pix.qrcodeImage);
   });
 
+    document.addEventListener("DOMContentLoaded", function () {
+  console.log("SCRIPT CARREGOU ✅");
+
+  const confirmBtn = document.getElementById("confirm-btn");
+
+  if (!confirmBtn) {
+    console.error("❌ Botão confirm-btn NÃO encontrado");
+    return;
+  }
+
+  confirmBtn.addEventListener("click", function () {
+    console.log("BOTÃO CLICADO ✅");
+    alert("Clique detectado!");
+  });
+});
+
+
 });
 
 
 document.addEventListener('DOMContentLoaded', updateTotalsUI);
+
 
 
 
