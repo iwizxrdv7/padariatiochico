@@ -310,14 +310,13 @@ function updateTotalsUI() {
     if (btn) btn.textContent = `Confirmar Pedido no valor de ${money(final)}`;
 }
 
-function mostrarPixModal(responseData);
+function mostrarPixModal(qrCode, qrImage) {
     document.getElementById("pix-modal").classList.remove("hidden");
-    document.getElementById("pix-code").value = data.qrCode;
-document.getElementById("pix-image").src = data.qrCodeImage;
-
+    document.getElementById("pix-code").value = qrCode;
+    document.getElementById("pix-image").src = qrImage;
 
     document.getElementById("copy-btn").onclick = () => {
-        navigator.clipboard.writeText(code);
+        navigator.clipboard.writeText(qrCode);
         alert("Código PIX copiado!");
     };
 
@@ -344,6 +343,7 @@ function iniciarTimerPix() {
 
 
 document.addEventListener('DOMContentLoaded', updateTotalsUI);
+
 
 
 
