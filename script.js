@@ -292,7 +292,20 @@ function updateTotalsUI() {
     if (btn) btn.textContent = `Confirmar Pedido no valor de ${money(final)}`;
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  const confirmBtn = document.getElementById("confirm-btn");
+
+  confirmBtn.addEventListener("click", async () => {
+    console.log("BOTÃO FUNCIONOU ✅");
+
+    document.getElementById("pix-modal").style.display = "flex";
+    iniciarTimer();
+  });
+});
+
+
 document.addEventListener('DOMContentLoaded', updateTotalsUI);
+
 
 
 
