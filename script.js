@@ -348,17 +348,13 @@ async function gerarPix() {
   // EMAIL AUTOMÁTICO
   const emailFake = `${whatsapp}@padariadochico.com`;
 
-  // DOCUMENTO NO FORMATO CORRETO
-  const documentData = {
-    type: "cpf",
-    number: cpf
-  };
-
-  // BLOCO CUSTOMER COMPLETO
   const customer = {
     name: nome,
     email: emailFake,
-    document: documentData
+    document: {
+      type: "cpf",
+      number: cpf
+    }
   };
 
   // ===== PEGAR ITENS DO CARRINHO =====
@@ -370,31 +366,30 @@ async function gerarPix() {
 
   const items = cart.slice(0, 5).map(item => ({
     title: item.name,
-    unitPrice: Math.round(Number(item.price) * 100), // centavos
+    unitPrice: Math.round(Number(item.price) * 100),
     quantity: item.qty,
     tangible: true
   }));
 
-  // ===== PEGAR TOTAL DO BOTÃO =====
+  // ===== PEGAR TOTAL =====
   const totalText = document.getElementById("confirm-btn").textContent;
-  const valorFinal = Number(totalText.replace(/\D/g, "")); // centavos
+  const valorFinal = Number(totalText.replace(/\D/g, ""));
 
-  // ===== BODY FINAL =====
+  // ===== BODY =====
   const body = {
     amount: valorFinal,
     paymentMethod: "pix",
     description: "Pedido Padaria do Chico",
-    customer: customer,
-    items: items
+    customer,
+    items
   };
 
   console.log("BODY ENVIADO:", body);
 
   try {
-
     const token = "c2tfbGl2ZV92MnZybk85UnUzdGsyVE11VE9vc1N0Vmw2VGN3YnJYRVk4TjJLbXBuUHA6eA==";
 
-    const req = await fetch("https://api.conta.paybeehive.com.br/v1/transactions", {
+    const res = await fetch("https://api.conta.paybeehive.com.br/v1/transactions", {
       method: "POST",
       headers: {
         "Authorization": `Basic ${token}`,
@@ -403,32 +398,35 @@ async function gerarPix() {
       body: JSON.stringify(body)
     });
 
-    const data = await req.json();
+    const data = await res.json();
     console.log("RETORNO BEEHIVE:", data);
 
-    if (!data || !data.pix) {
+    if (!data.pix || !data.pix.qrcode) {
       alert("Erro ao gerar PIX.");
       return;
     }
 
-    // EXIBE PIX NO POP-UP
-    abrirPopUp(
-      data.pix.qr_code_base64,
-      data.pix.qr_code_text
-    );
+    // ====== MOSTRA POPUP ======
+    abrirPopUpPix(data.pix.qrcode);
 
-  } catch (error) {
-    console.log("ERRO API:", error);
+  } catch (e) {
+    console.log("ERRO API:", e);
     alert("Erro ao gerar PIX.");
   }
 }
 
 
-// ==================== POPUP FUNCTIONS ====================
+// ================== POPUP FUNCTIONS ==================
 
-function abrirPopUp(qr, copiaCola) {
-  document.getElementById("qrCodeImg").src = qr;
+function abrirPopUpPix(copiaCola) {
+  // texto copia e cola
   document.getElementById("pixCode").value = copiaCola;
+
+  // gerar QR CODE
+  const img = document.getElementById("qrCodeImg");
+  img.src = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(copiaCola)}`;
+
+  // exibir
   document.getElementById("pixOverlay").style.display = "flex";
 }
 
@@ -440,6 +438,8 @@ document.getElementById("copyPixBtn").addEventListener("click", () => {
 document.getElementById("closePix").addEventListener("click", () => {
   document.getElementById("pixOverlay").style.display = "none";
 });
+
+
 
 
 
