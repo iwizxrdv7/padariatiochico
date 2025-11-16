@@ -295,5 +295,60 @@ function updateTotalsUI() {
 document.addEventListener('DOMContentLoaded', updateTotalsUI);
 });
 
+// ================= PIX POP-UP + INTEGRAÇÃO BEEHIVEPAY =================
+
+// Evento do botão confirmar pedido
+document.getElementById("confirm-btn").addEventListener("click", gerarPix);
+
+// Função que chama API e abre o pop-up
+async function gerarPix() {
+  const totalText = document.getElementById("confirm-btn").textContent;
+  const valor = Number(totalText.replace(/\D/g, "")) / 100;
+
+  // DADOS DO PEDIDO
+  const body = {
+    amount: valor,
+    description: "Pedido Padaria do Chico",
+    // caso a BeehivePay peça txid, coloca aqui
+  };
+
+  try {
+    const req = await fetch("https://api.beehivepay.com/pix/gerar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer SEU_TOKEN_AQUI"
+      },
+      body: JSON.stringify(body)
+    });
+
+    const data = await req.json();
+
+    abrirPopUp(data.qrCodeImage, data.pixCopiaCola);
+
+  } catch (e) {
+    console.log("ERRO PIX:", e);
+    alert("Erro ao gerar PIX.");
+  }
+}
+
+
+// MOSTRAR POPUP
+function abrirPopUp(qr, copiaCola) {
+  document.getElementById("qrCodeImg").src = qr;
+  document.getElementById("pixCode").value = copiaCola;
+  document.getElementById("pixOverlay").style.display = "flex";
+}
+
+// COPIAR CÓDIGO
+document.getElementById("copyPixBtn").addEventListener("click", () => {
+  navigator.clipboard.writeText(document.getElementById("pixCode").value);
+  alert("Código copiado!");
+});
+
+// FECHAR POPUP
+document.getElementById("closePix").addEventListener("click", () => {
+  document.getElementById("pixOverlay").style.display = "none";
+});
 
 
