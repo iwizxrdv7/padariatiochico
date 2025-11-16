@@ -330,28 +330,42 @@ document.getElementById("confirm-btn").addEventListener("click", async () => {
 
 // ================= INTEGRAÇÃO PIX BEEHIVEPAY =================
 
-// Evento do botão confirmar pedido
+// BOTÃO CONFIRMAR PEDIDO → GERAR PIX
 document.getElementById("confirm-btn").addEventListener("click", gerarPix);
 
-// Função principal
 async function gerarPix() {
-  // pega valor do botão "Confirmar Pedido"
-  const totalText = document.getElementById("confirm-btn").textContent;
-  const valor = Number(totalText.replace(/\D/g, "")) / 100;
 
-  // DADOS DO PEDIDO PARA API BEEHIVEPAY
+  // ===== PEGA ITENS DO CARRINHO =====
+  const cart = JSON.parse(localStorage.getItem("pdc_cart_v1")) || [];
+  if (!cart.length) {
+    alert("Seu carrinho está vazio.");
+    return;
+  }
+
+  // ===== MONTA ITEMS PARA API =====
+  const items = cart.slice(0, 5).map(item => ({
+    name: item.name,
+    quantity: item.qty,
+    unit_amount: Math.round(Number(item.price) * 100) // preço em centavos
+  }));
+
+  // ===== CALCULA VALOR TOTAL (ITENS + ENTREGA) =====
+  const totalText = document.getElementById("confirm-btn").textContent;
+  const valorFinal = Number(totalText.replace(/\D/g, "")); // já fica inteiro em centavos
+
+  // ===== BODY EXATO QUE A API PEDE =====
   const body = {
-    amount: valor,
-    payment_method: "pix",
-    description: "Pedido Padaria do Chico"
+    amount: valorFinal,            // inteiro (centavos)
+    paymentMethod: "pix",          // camelCase
+    description: "Pedido Padaria do Chico",
+    items: items                   // array obrigatório
   };
 
-  try {
+  console.log("BODY ENVIADO:", body);
 
-    // === AUTENTICAÇÃO BASIC COM TUA SECRET KEY ===
+  try {
     const token = "c2tfbGl2ZV92MnZybk85UnUzdGsyVE11VE9vc1N0Vmw2VGN3YnJYRVk4TjJLbXBuUHA6eA==";
 
-    // === CHAMADA REAL DA API PIX ===
     const req = await fetch("https://api.conta.paybeehive.com.br/v1/transactions", {
       method: "POST",
       headers: {
@@ -362,42 +376,44 @@ async function gerarPix() {
     });
 
     const data = await req.json();
-    console.log("RETORNO PIX BEEHIVE:", data);
+    console.log("RETORNO BEEHIVE:", data);
 
     if (!data || !data.pix) {
-      alert("Erro ao gerar PIX. Tente novamente.");
+      alert("Erro ao gerar PIX.");
       return;
     }
 
-    // Abre o pop-up com QR e cópia e cola
+    // EXIBE QR CODE E COPIA-COLA
     abrirPopUp(
       data.pix.qr_code_base64,
       data.pix.qr_code_text
     );
 
-  } catch (e) {
-    console.log("Erro API PIX:", e);
+  } catch (erro) {
+    console.log("ERRO FATAL PIX:", erro);
     alert("Erro ao gerar PIX.");
   }
 }
 
 
-// === POP-UP FUNCTIONS ===
-
+// ABRIR POPUP
 function abrirPopUp(qr, copiaCola) {
   document.getElementById("qrCodeImg").src = qr;
   document.getElementById("pixCode").value = copiaCola;
   document.getElementById("pixOverlay").style.display = "flex";
 }
 
+// COPIAR
 document.getElementById("copyPixBtn").addEventListener("click", () => {
   navigator.clipboard.writeText(document.getElementById("pixCode").value);
   alert("Código copiado!");
 });
 
+// FECHAR
 document.getElementById("closePix").addEventListener("click", () => {
   document.getElementById("pixOverlay").style.display = "none";
 });
+
 
 
 
