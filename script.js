@@ -335,7 +335,7 @@ document.getElementById("confirm-btn").addEventListener("click", gerarPix);
 
 async function gerarPix() {
 
-  // ================= PEGAR DADOS DO CLIENTE =================
+  // ===== PEGAR DADOS DO CLIENTE =====
   const nome = document.getElementById("nome").value.trim();
   const whatsapp = document.getElementById("whatsapp").value.replace(/\D/g, "");
 
@@ -344,33 +344,33 @@ async function gerarPix() {
     return;
   }
 
-  // cria e-mail automático válido
   const customerEmail = `${whatsapp}@padariadochico.com`;
 
-  // monta bloco customer exigido pela API
   const customer = {
     name: nome,
     email: customerEmail
   };
 
-  // ================= PEGAR ITENS DO CARRINHO =================
+  // ===== PEGAR ITENS DO CARRINHO =====
   const cart = JSON.parse(localStorage.getItem("pdc_cart_v1")) || [];
   if (!cart.length) {
     alert("Seu carrinho está vazio.");
     return;
   }
 
+  // ===== FORMATO OFICIAL BEEHIVE =====
   const items = cart.slice(0, 5).map(item => ({
-    name: item.name,
+    title: item.name,                                  // título obrigatório
+    unitPrice: Math.round(Number(item.price) * 100),   // inteiro em centavos
     quantity: item.qty,
-    unit_amount: Math.round(Number(item.price) * 100)
+    tangible: true                                     // produto físico
   }));
 
-  // ================= TOTAL FINAL =================
+  // ===== PEGAR VALOR FINAL (BOTÃO) =====
   const totalText = document.getElementById("confirm-btn").textContent;
-  const valorFinal = Number(totalText.replace(/\D/g, ""));
+  const valorFinal = Number(totalText.replace(/\D/g, "")); // centavos
 
-  // ================= BODY EXIGIDO PELA API =================
+  // ===== MONTAR BODY FINAL CORRETO =====
   const body = {
     amount: valorFinal,
     paymentMethod: "pix",
@@ -382,7 +382,6 @@ async function gerarPix() {
   console.log("BODY ENVIADO:", body);
 
   try {
-
     const token = "c2tfbGl2ZV92MnZybk85UnUzdGsyVE11VE9vc1N0Vmw2VGN3YnJYRVk4TjJLbXBuUHA6eA==";
 
     const req = await fetch("https://api.conta.paybeehive.com.br/v1/transactions", {
@@ -402,6 +401,7 @@ async function gerarPix() {
       return;
     }
 
+    // ABRIR POPUP COM O PIX
     abrirPopUp(
       data.pix.qr_code_base64,
       data.pix.qr_code_text
@@ -430,6 +430,8 @@ document.getElementById("copyPixBtn").addEventListener("click", () => {
 document.getElementById("closePix").addEventListener("click", () => {
   document.getElementById("pixOverlay").style.display = "none";
 });
+
+
 
 
 
