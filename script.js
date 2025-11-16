@@ -330,40 +330,59 @@ document.getElementById("confirm-btn").addEventListener("click", async () => {
 
 // ================= INTEGRAÇÃO PIX BEEHIVEPAY =================
 
-// BOTÃO CONFIRMAR PEDIDO → GERAR PIX
+// BOTÃO CONFIRMAR PEDIDO
 document.getElementById("confirm-btn").addEventListener("click", gerarPix);
 
 async function gerarPix() {
 
-  // ===== PEGA ITENS DO CARRINHO =====
+  // ================= PEGAR DADOS DO CLIENTE =================
+  const nome = document.getElementById("nome").value.trim();
+  const whatsapp = document.getElementById("whatsapp").value.replace(/\D/g, "");
+
+  if (!nome || whatsapp.length < 10) {
+    alert("Preencha seu nome e WhatsApp antes de continuar.");
+    return;
+  }
+
+  // cria e-mail automático válido
+  const customerEmail = `${whatsapp}@padariadochico.com`;
+
+  // monta bloco customer exigido pela API
+  const customer = {
+    name: nome,
+    email: customerEmail
+  };
+
+  // ================= PEGAR ITENS DO CARRINHO =================
   const cart = JSON.parse(localStorage.getItem("pdc_cart_v1")) || [];
   if (!cart.length) {
     alert("Seu carrinho está vazio.");
     return;
   }
 
-  // ===== MONTA ITEMS PARA API =====
   const items = cart.slice(0, 5).map(item => ({
     name: item.name,
     quantity: item.qty,
-    unit_amount: Math.round(Number(item.price) * 100) // preço em centavos
+    unit_amount: Math.round(Number(item.price) * 100)
   }));
 
-  // ===== CALCULA VALOR TOTAL (ITENS + ENTREGA) =====
+  // ================= TOTAL FINAL =================
   const totalText = document.getElementById("confirm-btn").textContent;
-  const valorFinal = Number(totalText.replace(/\D/g, "")); // já fica inteiro em centavos
+  const valorFinal = Number(totalText.replace(/\D/g, ""));
 
-  // ===== BODY EXATO QUE A API PEDE =====
+  // ================= BODY EXIGIDO PELA API =================
   const body = {
-    amount: valorFinal,            // inteiro (centavos)
-    paymentMethod: "pix",          // camelCase
+    amount: valorFinal,
+    paymentMethod: "pix",
     description: "Pedido Padaria do Chico",
-    items: items                   // array obrigatório
+    customer: customer,
+    items: items
   };
 
   console.log("BODY ENVIADO:", body);
 
   try {
+
     const token = "c2tfbGl2ZV92MnZybk85UnUzdGsyVE11VE9vc1N0Vmw2VGN3YnJYRVk4TjJLbXBuUHA6eA==";
 
     const req = await fetch("https://api.conta.paybeehive.com.br/v1/transactions", {
@@ -383,36 +402,36 @@ async function gerarPix() {
       return;
     }
 
-    // EXIBE QR CODE E COPIA-COLA
     abrirPopUp(
       data.pix.qr_code_base64,
       data.pix.qr_code_text
     );
 
   } catch (erro) {
-    console.log("ERRO FATAL PIX:", erro);
+    console.log("ERRO API:", erro);
     alert("Erro ao gerar PIX.");
   }
 }
 
 
-// ABRIR POPUP
+// ==================== POPUP FUNCTIONS ====================
+
 function abrirPopUp(qr, copiaCola) {
   document.getElementById("qrCodeImg").src = qr;
   document.getElementById("pixCode").value = copiaCola;
   document.getElementById("pixOverlay").style.display = "flex";
 }
 
-// COPIAR
 document.getElementById("copyPixBtn").addEventListener("click", () => {
   navigator.clipboard.writeText(document.getElementById("pixCode").value);
   alert("Código copiado!");
 });
 
-// FECHAR
 document.getElementById("closePix").addEventListener("click", () => {
   document.getElementById("pixOverlay").style.display = "none";
 });
+
+
 
 
 
